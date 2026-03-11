@@ -107,11 +107,47 @@ body {
 .nav__icons {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
 
-.nav__icons span {
-  font-size: 1.25rem;
+.nav__toggle {
+  display: none;
+  font-size: 2rem;
   cursor: pointer;
+}
+
+.mobile__nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70vw;
+  max-width: 320px;
+  height: 100vh;
+  background: var(--white);
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  padding: 2rem 1.5rem;
+  transition: transform 0.3s ease;
+  transform: translateX(100%);
+}
+.mobile__nav.active {
+  display: block;
+  transform: translateX(0);
+}
+.mobile__nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.mobile__nav ul li a {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  text-decoration: none;
 }
 
 header {
@@ -161,6 +197,8 @@ header {
 .collection__container img {
   max-width: 400px;
   margin: auto;
+  width: 100%;
+  height: auto;
 }
 
 .collection__content {
@@ -510,35 +548,55 @@ header {
     display: none;
   }
 
-  header {
-    margin-top: 0;
+  .nav__toggle {
+    display: block;
+  }
+
+  .mobile__nav {
+    display: none;
   }
 
   .header__container {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .header__image {
-    display: none;
+  .header__content h1 {
+    font-size: 2rem;
   }
 
-  .sale__grid {
-    grid-template-columns: repeat(1, 1fr);
+  .header__content p {
+    font-size: 0.9rem;
   }
 
-  .musthave__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
   }
 
-  .news__grid {
-    grid-template-columns: repeat(1, 1fr);
+  .collection__container img {
+    max-width: 400px;
+    margin: auto;
+    width: 100%;
+    height: auto;
   }
 
-  .brands__container {
-    grid-template-columns: repeat(2, 1fr);
+  .collection__content {
+    left: 1rem;
+    right: 1rem;
+    text-align: center;
   }
 
   .footer__container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .footer__heading {
+    font-size: 0.9rem;
+  }
+
+  .footer__col p {
+    font-size: 0.8rem;
   }
 }
+
